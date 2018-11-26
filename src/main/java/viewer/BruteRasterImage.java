@@ -2,6 +2,7 @@ package viewer;
 
 import image.Image;
 import javafx.scene.paint.Color;
+import util.Matrices;
 
 public class BruteRasterImage implements Image {
 
@@ -23,7 +24,12 @@ public class BruteRasterImage implements Image {
     }
 
     //index : x     index2 : y
-    public BruteRasterImage(Color[][] colors){ this.colors = colors; }
+    public BruteRasterImage(Color[][] colors){
+
+        Matrices.requiresRectangularMatrix(colors);
+        Matrices.requiresNonNull(colors);
+        this.colors = colors;
+    }
 
     @Override
     public Color getPixelColor(int x, int y) {
