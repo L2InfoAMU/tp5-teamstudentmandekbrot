@@ -1,26 +1,38 @@
 package image;
 
 import javafx.scene.paint.Color;
+import util.Matrices;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PaletteRasterImage implements Image {
 
-    int width;
-    int height;
-    Color[][] pixels;
+   private int width;
+   private int height;
+   private List<Color> palette ;
+   private int[][] pixels;
 
     public PaletteRasterImage(Color color, int width, int height){
+
         this.width = width;
         this.height = height;
+        CreateRepresentation();
+        palette.add(color);
 
-        for(int indexWidth=0; indexWidth<width; indexWidth++){
-            for(int indexHeight=0; indexHeight<height; indexHeight++){
-                pixels[indexWidth][indexHeight] = color;
-            }
-        }
     }
 
     public PaletteRasterImage(Color[][] pixels){
-        this.pixels = pixels.clone();
+        Matrices.requiresRectangularMatrix(pixels);
+        Matrices.requiresNonNull(pixels);
+
+
+    }
+
+    public  void CreateRepresentation(){
+
+        this.palette = new ArrayList<Color>();
+        this.pixels = new int[this.width][this.height];
     }
 
     @Override
