@@ -7,14 +7,12 @@ import util.Matrices;
 public class BruteRasterImage implements Image {
 
     Color[][] colors;
-    Color color;
     int width;
     int height;
 
     public BruteRasterImage(Color color, int width, int height){
         this.width = width;
         this.height = height;
-        this.color = color;
         colors = new Color[width][height];
 
         for(int index=0; index<width; index++){
@@ -29,7 +27,10 @@ public class BruteRasterImage implements Image {
 
         Matrices.requiresRectangularMatrix(colors);
         Matrices.requiresNonNull(colors);
-        this.colors = colors;
+        this.colors = colors.clone();
+
+        this.height = this.colors.length ;
+        this.width = this.colors[0].length ;
     }
 
     @Override
