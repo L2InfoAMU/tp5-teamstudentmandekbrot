@@ -1,4 +1,4 @@
-package viewer;
+package image;
 
 import image.Image;
 import javafx.scene.paint.Color;
@@ -38,12 +38,12 @@ public class BruteRasterImage implements Image {
 
     @Override
     public int getWidth() {
-        return 0;
+        return this.width;
     }
 
     @Override
     public int getHeight() {
-        return 0;
+        return this.height;
     }
 
     public void createRepresentation(){
@@ -55,11 +55,13 @@ public class BruteRasterImage implements Image {
     }
 
 
+    public void setPixelsColor(Color[][] pixels){ this.colors = pixels.clone(); }
 
-        public void setPixelsColor(Color[][] pixels){
+    public void setWidth(int width) {
+        this.width = width;
+    }
 
-        this.colors = pixels.clone();
-        }
-
-
+    public void setHeight(int height) {
+        this.height = height;
+    }
 }
