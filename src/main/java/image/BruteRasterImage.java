@@ -28,8 +28,8 @@ public class BruteRasterImage implements Image {
         Matrices.requiresNonNull(colors);
         this.colors = colors.clone();
 
-        this.height = this.colors.length ;
-        this.width = this.colors[0].length ;
+        this.height = this.colors[0].length ;
+        this.width = this.colors.length ;
     }
 
     @Override
