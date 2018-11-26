@@ -52,5 +52,7 @@ public class BruteRasterImage implements Image {
         colors = new Color[width][height];
     }
 
+    
+
 
 }
