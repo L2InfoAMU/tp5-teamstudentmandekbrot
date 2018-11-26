@@ -55,4 +55,11 @@ public class BruteRasterImage implements Image {
     }
 
 
+
+        public void setPixelsColor(Color[][] pixels){
+
+        this.colors = pixels.clone();
+        }
+
+
 }
