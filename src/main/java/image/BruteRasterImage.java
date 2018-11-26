@@ -34,9 +34,7 @@ public class BruteRasterImage implements Image {
     }
 
     @Override
-    public Color getPixelColor(int x, int y) {
-        return null;
-    }
+    public Color getPixelColor(int x, int y){ return colors[x][y]; }
 
     @Override
     public int getWidth() {
@@ -53,7 +51,8 @@ public class BruteRasterImage implements Image {
     }
 
     public void setPixelColor(Color color , int x , int y){
-        this.colors[x][y] = color ; }
+        this.colors[x][y] = color ;
+    }
 
 
 }
