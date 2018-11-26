@@ -4,6 +4,10 @@ import image.Image;
 import javafx.scene.paint.Color;
 import util.Matrices;
 
+enum RasterImageType{
+    BRUTE;
+}
+
 public class BruteRasterImage implements Image {
 
     Color[][] colors;
@@ -56,13 +60,9 @@ public class BruteRasterImage implements Image {
 
     public void setPixelsColor(Color[][] pixels){ this.colors = pixels.clone(); }
 
-    public void setWidth(int width) {
-        this.width = width;
-    }
+    protected void setWidth(int width) { this.width = width; }
 
-    public void setHeight(int height) {
-        this.height = height;
-    }
+    protected void setHeight(int height) { this.height = height; }
 
     private void setPixelsColor(Color color){
         for(int indexWidth=0; indexWidth<width; indexWidth++){
