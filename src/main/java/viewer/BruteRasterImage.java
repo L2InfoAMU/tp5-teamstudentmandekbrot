@@ -30,7 +30,7 @@ public class BruteRasterImage implements Image {
         this.colors = colors.clone();
 
         this.height = this.colors.length ;
-        this.width = this.colors[0].length ;
+        this.width = this.colors[0].length ; 
     }
 
     @Override
