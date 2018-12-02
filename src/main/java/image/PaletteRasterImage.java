@@ -49,20 +49,46 @@ public class PaletteRasterImage implements Image {
         this.pixels = new int[this.width][this.height];
     }
 
+    public void setPixelColor(Color color , int x , int y) {
+
+        if (!isInPaletteColor(color)) this.palette.add(color);
+        this.pixels[x][y] = this.palette.indexOf(color);
+    }
+
     @Override
     public Color getPixelColor(int x, int y) {
         return this.palette.get(pixels[x][y]);
     }
 
+    public void setPixelsColor(Color[][] pixels){
+        //TODO : implements this method
+    }
+
+    private void setPixelsColor(Color color){
+
+        for(int[] integers : pixels){
+            for(int integer : integers){
+                integer = this.palette.indexOf(color);
+            }
+        }
+    }
     @Override
     public int getWidth() {
-        return 0;
+        return this.width;
     }
 
     @Override
     public int getHeight() {
-        return 0;
+        return this.height;
     }
 
-    
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+
 }
