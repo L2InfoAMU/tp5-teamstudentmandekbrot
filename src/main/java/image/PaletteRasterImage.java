@@ -25,8 +25,22 @@ public class PaletteRasterImage implements Image {
     public PaletteRasterImage(Color[][] pixels){
         Matrices.requiresRectangularMatrix(pixels);
         Matrices.requiresNonNull(pixels);
+        this.width = pixels[0].length;
+        this.height = pixels.length;
+        CreateRepresentation();
 
+        for ( int indexInPixelsWidth = 0 ; indexInPixelsWidth < this.width ; indexInPixelsWidth++){
+            for (int indexInPixelsHeight = 0 ; indexInPixelsHeight < this.height ; indexInPixelsHeight++){
+                if (!isInPaletteColor(pixels[indexInPixelsWidth][indexInPixelsHeight])){
+                    palette.add(pixels[indexInPixelsWidth][indexInPixelsHeight]);
+                }
+            }
+        }
+    }
 
+    public boolean isInPaletteColor(Color color){
+
+        return (palette.contains(color));
     }
 
     public  void CreateRepresentation(){
@@ -37,7 +51,7 @@ public class PaletteRasterImage implements Image {
 
     @Override
     public Color getPixelColor(int x, int y) {
-        return null;
+        return this.palette.get(pixels[x][y]);
     }
 
     @Override
