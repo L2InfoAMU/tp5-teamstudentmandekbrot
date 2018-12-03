@@ -40,12 +40,5 @@ public class BruteRasterImage extends RasterImage implements Image{
 
     public void setPixelsColor(Color[][] pixels){ this.colors = pixels.clone(); }
 
-    public void setPixelsColor(Color color){
-        for(int indexWidth=0; indexWidth<width; indexWidth++){
-            for(int indexHeight=0; indexHeight<height; indexHeight++){
-                setPixelColor(color, indexWidth, indexHeight);
-            }
-        }
-    }
 
 }
