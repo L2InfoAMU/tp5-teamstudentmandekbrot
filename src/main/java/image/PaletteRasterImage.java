@@ -22,17 +22,18 @@ public class PaletteRasterImage implements Image {
 
     }
 
+
     public PaletteRasterImage(Color[][] pixels){
         Matrices.requiresRectangularMatrix(pixels);
         Matrices.requiresNonNull(pixels);
-        this.width = pixels[0].length;
-        this.height = pixels.length;
+        this.width = pixels.length;
+        this.height = pixels[0].length;
         CreateRepresentation();
 
-        for ( int indexInPixelsWidth = 0 ; indexInPixelsWidth < this.width ; indexInPixelsWidth++){
-            for (int indexInPixelsHeight = 0 ; indexInPixelsHeight < this.height ; indexInPixelsHeight++){
-                if (!isInPaletteColor(pixels[indexInPixelsWidth][indexInPixelsHeight])){
-                    palette.add(pixels[indexInPixelsWidth][indexInPixelsHeight]);
+        for ( int indexWidth = 0 ; indexWidth < this.width ; indexWidth++){
+            for (int indexHeight = 0 ; indexHeight < this.height ; indexHeight++){
+                if (!isInPaletteColor(pixels[indexWidth][indexHeight])){
+                    palette.add(pixels[indexWidth][indexHeight]);
                 }
             }
         }
@@ -61,7 +62,19 @@ public class PaletteRasterImage implements Image {
     }
 
     public void setPixelsColor(Color[][] pixels){
-        //TODO : implements this method
+
+        for ( int i = 0 ; i < pixels[0].length; i++){
+            for (int j = 0 ;j < pixels.length ; j++ ){
+
+                if(!isInPaletteColor(pixels[i][j]))palette.add(pixels[i][j]);
+                this.pixels[i][j] = palette.indexOf(pixels[i][j]);
+
+            }
+        }
+
+
+
+
     }
 
     private void setPixelsColor(Color color){
