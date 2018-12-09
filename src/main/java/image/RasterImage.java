@@ -26,7 +26,7 @@ public abstract class RasterImage {
         return width;
     }
 
-    public void setWidth(int width) {
+    protected void setWidth(int width) {
         this.width = width;
     }
 
@@ -34,7 +34,7 @@ public abstract class RasterImage {
         return height;
     }
 
-    public void setHeight(int height) {
+    protected void setHeight(int height) {
         this.height = height;
     }
 
