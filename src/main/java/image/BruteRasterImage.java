@@ -20,11 +20,8 @@ public class BruteRasterImage extends RasterImage implements Image  {
 
     //index : x     index2 : y
     public BruteRasterImage(Color[][] colors){
-
         super(colors);
         this.colors = colors.clone();
-
-
     }
 
     @Override
