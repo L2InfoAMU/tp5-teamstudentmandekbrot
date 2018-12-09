@@ -3,16 +3,13 @@ package image;
 import javafx.scene.paint.Color;
 import util.Matrices;
 
-public class BruteRasterImage implements Image {
+public class BruteRasterImage extends RasterImage implements Image  {
 
-    Color[][] colors;
-    int width;
-    int height;
+    private Color[][] colors;
+
 
     public BruteRasterImage(Color color, int width, int height){
-        this.width = width;
-        this.height = height;
-        createRepresentation();
+        super(width, height);
 
         for(int index=0; index<width; index++){
             for(int index2=0; index2<height; index2++){
@@ -24,26 +21,14 @@ public class BruteRasterImage implements Image {
     //index : x     index2 : y
     public BruteRasterImage(Color[][] colors){
 
-        Matrices.requiresRectangularMatrix(colors);
-        Matrices.requiresNonNull(colors);
+        super(colors);
         this.colors = colors.clone();
 
-        this.height = this.colors[0].length ;
-        this.width = this.colors.length ;
+
     }
 
     @Override
     public Color getPixelColor(int x, int y){ return colors[x][y]; }
-
-    @Override
-    public int getWidth() {
-        return this.width;
-    }
-
-    @Override
-    public int getHeight() {
-        return this.height;
-    }
 
     public void createRepresentation(){
         colors = new Color[width][height];
@@ -53,18 +38,7 @@ public class BruteRasterImage implements Image {
         this.colors[x][y] = color ;
     }
 
-    public void setPixelsColor(Color[][] pixels){ this.colors = pixels.clone(); }
 
-    protected void setWidth(int width) { this.width = width; }
 
-    protected void setHeight(int height) { this.height = height; }
-
-    private void setPixelsColor(Color color){
-        for(int indexWidth=0; indexWidth<width; indexWidth++){
-            for(int indexHeight=0; indexHeight<height; indexHeight++){
-                setPixelColor(color, indexWidth, indexHeight);
-            }
-        }
-    }
 
 }
