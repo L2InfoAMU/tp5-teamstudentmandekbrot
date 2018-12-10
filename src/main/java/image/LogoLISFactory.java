@@ -26,6 +26,8 @@ public class LogoLISFactory implements ImageFactory{
 
         for (int i = 0; i<colors.length; i++)
             list.add(new Rectangle(xCoordinates[i], yCoordinates[i], widths[i], heights[i], colors[i]));
+           /* list.add(new PolygonalShape(new Point[]{new Point(xCoordinates[1],yCoordinates[1]),new Point(xCoordinates[2],yCoordinates[2])
+            ,new Point(xCoordinates[3],yCoordinates[3])},colors[5])); */
 
         return new VectorImage(list, 860, 340);
     }
