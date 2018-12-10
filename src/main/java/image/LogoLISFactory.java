@@ -6,6 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LogoLISFactory implements ImageFactory{
+
+    /**
+     * Initialise the coordinates and colors for each form. This method realise the logo LIS with rectangle form
+     * @return
+     */
     @Override
     public Image makeImage() {
         Color dark = Color.rgb(35,31,32);

@@ -17,11 +17,18 @@ public class Rectangle implements Shape {
         this.color = color;
     }
 
+    /**
+     * @param point
+     * @return true if the point is contained in the geometric shape
+     */
     @Override
     public boolean contains(Point point) {
         return ( point.x >= x && point.x <= x + width && point.y  >= y && point.y <= y + height );
     }
 
+    /**
+     * @return the color of the current shape
+     */
     @Override
     public Color getColor() {
         return color;

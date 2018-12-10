@@ -15,6 +15,10 @@ public class RasterUniformImageFactory implements ImageFactory {
         this.rasterImageType = rasterImageType;
     }
 
+    /**
+     * Initialise the color and size by selection of the adequate format
+     * @return
+     */
     @Override
     public Image makeImage() {
         switch (rasterImageType){

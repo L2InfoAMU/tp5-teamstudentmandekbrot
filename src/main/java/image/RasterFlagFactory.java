@@ -20,6 +20,10 @@ public class RasterFlagFactory implements ImageFactory {
         this.rasterImageType = rasterImageType;
     }
 
+    /**
+     * Initialise the color for each coordinates. This method realise a flag of three color only
+     * @return
+     */
     @Override
     public Image makeImage() {
         Color[][] colors = new Color[width][height];

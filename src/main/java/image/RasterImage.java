@@ -22,6 +22,10 @@ public abstract class RasterImage {
 
     }
 
+
+    /**
+     * @return the current width
+     */
     public int getWidth() {
         return width;
     }
@@ -30,6 +34,9 @@ public abstract class RasterImage {
         this.width = width;
     }
 
+    /**
+     * @return the current height
+     */
     public int getHeight() {
         return height;
     }
@@ -38,8 +45,17 @@ public abstract class RasterImage {
         this.height = height;
     }
 
+    /**
+     * @param x
+     * @param y
+     * @return a color from the specific coordinates
+     */
     public abstract Color getPixelColor(int x, int y);
 
+    /**
+     * Apply the param color to all coordinates in the matrice
+     * @param color
+     */
     public  void setPixelsColor(Color color){
 
         for (int i = 0 ; i < this.width ; i++) {
@@ -49,10 +65,24 @@ public abstract class RasterImage {
         }
     }
 
+    /**
+     * Create a array with specific index limit
+     */
     public abstract void createRepresentation();
 
+    /**
+     * Replace the color to the specific coordinates (x, y) with the param color
+     * @param color
+     * @param x
+     * @param y
+     */
     public abstract void setPixelColor(Color color, int x, int y);
 
+    /**
+     * Apply the color[i][j] of the array pixels to the coordinates (i,j) in the matrice
+     * This method use setPixelColor(Color color, int x, int y) to apply at the specific coordinates
+     * @param pixels
+     */
     public void setPixelsColor(Color[][] pixels){
 
         for (int i = 0 ; i < this.width ; i++) {
