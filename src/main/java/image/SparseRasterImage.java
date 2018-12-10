@@ -6,8 +6,7 @@ import javafx.scene.paint.Color ;
 
 public class SparseRasterImage extends RasterImage implements Image{
 
-  public HashMap<Point, Color> colors ;
-
+  private HashMap<Point, Color> colors ;
 
      public SparseRasterImage(Color color,int width, int height){
          super(width, height);

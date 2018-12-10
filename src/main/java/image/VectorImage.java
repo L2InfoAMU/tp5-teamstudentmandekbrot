@@ -15,6 +15,11 @@ public class VectorImage implements Image{
         this.height =  height;
     }
 
+    /**
+     * @param x one coordinate
+     * @param y one coordinate
+     * @return the color of the shape containing the point. If the point isn't in the shape, return the white color
+     */
     @Override
     public Color getPixelColor(int x, int y) {
 
@@ -24,7 +29,7 @@ public class VectorImage implements Image{
             if(theShape.contains(point)) return theShape.getColor();
         }
 
-        return Color.WHITE; //ou NULL ???
+        return Color.WHITE;
     }
 
     @Override
